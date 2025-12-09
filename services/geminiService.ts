@@ -29,11 +29,11 @@ export const analyzeWorkMonth = async (
       You are a helpful productivity assistant. Analyze the following work attendance data for ${monthName}.
       
       Official Schedule Context:
-      - Working Days: Monday to Saturday.
+      - Working Days: Monday to Saturday (6 days/week).
       - Rest Day: Sunday.
       - Morning Shift: 09:00 AM - 12:00 PM (Noon).
       - Afternoon Shift: 01:00 PM - 06:00 PM.
-      - Break Time: 12:00 PM - 01:00 PM.
+      - Lunch Break: 12:00 PM - 01:00 PM.
       - Expected Total Daily Hours: 8 hours.
 
       Settings:
@@ -43,11 +43,11 @@ export const analyzeWorkMonth = async (
       ${summaryData}
 
       Please provide a concise, friendly summary that includes:
-      1. Overall attendance performance (punctuality) based on the 9:00 AM start time.
-      2. Adherence to the split shift schedule (Morning/Afternoon) if discernable.
+      1. Overall attendance performance based on the 09:00 AM start time.
+      2. Adherence to the full day schedule (Morning & Afternoon shifts).
       3. Total estimated earnings and hours.
-      4. Any patterns noticed (e.g., late on Mondays, missing afternoon shifts).
-      5. A short encouraging tip for better productivity.
+      4. Any patterns noticed (e.g., consistency on Saturdays, late arrivals).
+      5. A short encouraging tip for better productivity or work-life balance.
       
       Keep the response under 200 words. Return plain text with simple formatting.
     `;

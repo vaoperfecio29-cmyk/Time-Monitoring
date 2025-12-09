@@ -15,14 +15,15 @@ const StatCard: React.FC<{
   value: string;
   icon: React.ReactNode;
   accentColor: string;
-}> = ({ title, value, icon, accentColor }) => (
-  <div className={`p-6 rounded-2xl shadow-sm border border-brand-grey bg-brand-white flex flex-col items-start space-y-2 relative overflow-hidden`}>
+  textColor: string;
+}> = ({ title, value, icon, accentColor, textColor }) => (
+  <div className={`p-6 rounded-2xl shadow-sm border border-brand-white bg-brand-white flex flex-col items-start space-y-2 relative overflow-hidden group hover:shadow-md transition-all`}>
     <div className={`absolute top-0 left-0 w-1 h-full ${accentColor}`}></div>
     <div className="flex items-center justify-between w-full">
-      <h3 className="text-brand-darkGrey text-sm font-bold uppercase tracking-wider">{title}</h3>
-      <div className="p-2 rounded-full bg-brand-grey/50">{icon}</div>
+      <h3 className="text-brand-textGrey text-xs font-bold uppercase tracking-widest">{title}</h3>
+      <div className="p-2 rounded-full bg-brand-grey/50 group-hover:bg-brand-grey transition-colors">{icon}</div>
     </div>
-    <p className="text-3xl font-bold text-brand-black">{value}</p>
+    <p className={`text-3xl font-bold ${textColor}`}>{value}</p>
   </div>
 );
 
@@ -35,24 +36,28 @@ const Dashboard: React.FC<DashboardProps> = ({ stats, currency, onAnalyze, isAna
           value={stats.totalHours.toFixed(2) + ' h'}
           icon={<Clock className="w-5 h-5 text-brand-blue" />}
           accentColor="bg-brand-blue"
+          textColor="text-brand-blue"
         />
         <StatCard
           title="Total Earnings"
           value={formatCurrency(stats.totalEarnings, currency)}
-          icon={<DollarSign className="w-5 h-5 text-brand-blue" />}
+          icon={<DollarSign className="w-5 h-5 text-brand-black" />}
           accentColor="bg-brand-black"
+          textColor="text-brand-black"
         />
         <StatCard
           title="Total Late"
           value={stats.totalLateHours.toFixed(2) + ' h'}
           icon={<AlertCircle className="w-5 h-5 text-red-600" />}
           accentColor="bg-red-600"
+          textColor="text-red-600"
         />
          <StatCard
           title="Days Worked"
           value={stats.daysWorked.toString()}
-          icon={<Calendar className="w-5 h-5 text-brand-darkGrey" />}
-          accentColor="bg-brand-darkGrey"
+          icon={<Calendar className="w-5 h-5 text-brand-textGrey" />}
+          accentColor="bg-brand-textGrey"
+          textColor="text-brand-textGrey"
         />
       </div>
 
@@ -60,7 +65,7 @@ const Dashboard: React.FC<DashboardProps> = ({ stats, currency, onAnalyze, isAna
         <button
           onClick={onAnalyze}
           disabled={isAnalyzing}
-          className="flex items-center gap-2 px-6 py-3 bg-brand-blue hover:bg-blue-800 text-white rounded-xl shadow-md transition-all disabled:opacity-70 text-sm font-bold tracking-wide uppercase"
+          className="flex items-center gap-2 px-6 py-3 bg-brand-black hover:bg-brand-blue text-brand-white rounded-xl shadow-lg transition-all disabled:opacity-70 text-xs font-bold tracking-widest uppercase border border-brand-black hover:border-brand-blue"
         >
            {isAnalyzing ? (
               <>

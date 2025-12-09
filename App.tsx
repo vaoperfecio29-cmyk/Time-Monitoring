@@ -105,20 +105,20 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-brand-grey text-brand-black pb-20 font-sans">
       {/* Navbar */}
-      <nav className="sticky top-0 z-30 bg-brand-blue text-brand-white shadow-md">
-        <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-                <div className="bg-white/20 p-2 rounded-lg backdrop-blur-sm">
-                    <Calculator className="w-6 h-6 text-white" />
+      <nav className="sticky top-0 z-30 bg-brand-blue text-brand-white shadow-lg shadow-brand-blue/20">
+        <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div className="flex items-center gap-4">
+                <div className="bg-brand-white p-2 rounded-lg shadow-inner">
+                    <Calculator className="w-6 h-6 text-brand-blue" />
                 </div>
                 <div className="flex flex-col">
-                  <h1 className="font-bold text-xl tracking-tight leading-none">WorkFlow</h1>
-                  <span className="text-[10px] uppercase tracking-widest opacity-80">Time Monitor</span>
+                  <h1 className="font-bold text-2xl tracking-tight leading-none text-brand-white">WorkFlow</h1>
+                  <span className="text-[10px] uppercase tracking-widest text-brand-white/80">Time Monitor</span>
                 </div>
             </div>
             <button 
                 onClick={() => setIsSettingsOpen(true)}
-                className="p-2 hover:bg-white/10 rounded-full transition-colors text-white"
+                className="p-2 hover:bg-white/10 rounded-full transition-colors text-brand-white"
             >
                 <Settings className="w-6 h-6" />
             </button>
@@ -128,11 +128,11 @@ const App: React.FC = () => {
       <main className="max-w-4xl mx-auto px-4 py-8 space-y-8">
         
         {/* Month Selector */}
-        <div className="flex items-center justify-between bg-brand-white p-4 rounded-2xl shadow-sm border border-brand-grey/50">
+        <div className="flex items-center justify-between bg-brand-white p-4 rounded-2xl shadow-sm border border-brand-white">
             <button onClick={handlePrevMonth} className="p-2 hover:bg-brand-grey rounded-full transition-all text-brand-blue">
                 <ChevronLeft className="w-6 h-6" />
             </button>
-            <h2 className="text-2xl font-bold text-brand-black">
+            <h2 className="text-2xl font-bold text-brand-black uppercase tracking-tight">
                 {currentDate.toLocaleString('default', { month: 'long', year: 'numeric' })}
             </h2>
              <button onClick={handleNextMonth} className="p-2 hover:bg-brand-grey rounded-full transition-all text-brand-blue">
@@ -151,8 +151,8 @@ const App: React.FC = () => {
         {/* Calendar / List View */}
         <div className="space-y-4">
             <div className="flex items-center justify-between px-2">
-                <h3 className="text-lg font-bold text-brand-black">Daily Logs</h3>
-                <span className="text-xs font-medium text-brand-darkGrey uppercase tracking-wider">Tap to edit</span>
+                <h3 className="text-lg font-bold text-brand-black uppercase tracking-wide">Daily Logs</h3>
+                <span className="text-xs font-medium text-brand-textGrey uppercase tracking-wider">Tap to edit</span>
             </div>
             <CalendarGrid 
                 days={daysInMonth} 

@@ -15,7 +15,8 @@
                 black: '#000000',
                 white: '#FFFFFF',
                 grey: '#E7E9E7',
-                darkGrey: '#a1a1aa' // Adding a darker grey for secondary text visibility on light grey
+                // Keeping a utility dark grey for text contrast on light grey backgrounds
+                textGrey: '#4A4A4A' 
               }
             },
             fontFamily: {
@@ -26,7 +27,7 @@
       }
     </script>
     <style>
-      /* Custom scrollbar for webkit to make the "scroll type" look cleaner */
+      /* Custom scrollbar */
       ::-webkit-scrollbar {
         width: 8px;
         height: 8px;
@@ -54,7 +55,7 @@
 }
 </script>
 </head>
-  <body class="bg-brand-grey text-brand-black font-sans antialiased">
+  <body class="bg-brand-grey text-brand-black font-sans antialiased selection:bg-brand-blue selection:text-brand-white">
     <div id="root"></div>
   </body>
 </html>

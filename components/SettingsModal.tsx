@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Save, Settings } from 'lucide-react';
+import { X, Settings } from 'lucide-react';
 import { AppSettings } from '../types';
 
 interface SettingsModalProps {
@@ -28,37 +28,37 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, onSave, 
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-brand-black/60 backdrop-blur-sm p-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-brand-black/80 backdrop-blur-sm p-4">
       <div className="bg-brand-white rounded-2xl shadow-xl w-full max-w-sm overflow-hidden animate-in zoom-in-95 duration-200 border border-brand-grey">
-        <div className="px-6 py-4 border-b border-brand-grey flex justify-between items-center bg-brand-grey/20">
-          <div className="flex items-center gap-2 font-bold text-brand-black">
+        <div className="px-6 py-4 border-b border-brand-grey flex justify-between items-center bg-brand-grey">
+          <div className="flex items-center gap-2 font-bold text-brand-black uppercase tracking-wide">
             <Settings className="w-5 h-5 text-brand-blue" />
             Settings
           </div>
-          <button onClick={onClose} className="p-1 hover:bg-brand-grey rounded-full transition-colors">
-            <X className="w-5 h-5 text-brand-darkGrey" />
+          <button onClick={onClose} className="p-1 hover:bg-brand-white/50 rounded-full transition-colors">
+            <X className="w-5 h-5 text-brand-textGrey" />
           </button>
         </div>
 
         <div className="p-6 space-y-4">
           <div>
-            <label className="block text-sm font-bold text-brand-black mb-1">Hourly Rate</label>
+            <label className="block text-xs font-bold text-brand-black uppercase tracking-wider mb-2">Hourly Rate</label>
             <input
               type="number"
               name="hourlyRate"
               value={formData.hourlyRate}
               onChange={handleChange}
-              className="w-full p-2 border border-brand-grey rounded-lg focus:ring-2 focus:ring-brand-blue outline-none text-brand-black"
+              className="w-full p-3 border border-brand-grey rounded-lg focus:ring-2 focus:ring-brand-blue outline-none text-brand-black bg-brand-white"
             />
           </div>
 
           <div>
-             <label className="block text-sm font-bold text-brand-black mb-1">Currency</label>
+             <label className="block text-xs font-bold text-brand-black uppercase tracking-wider mb-2">Currency</label>
              <select 
                name="currency"
                value={formData.currency}
                onChange={handleChange}
-               className="w-full p-2 border border-brand-grey rounded-lg focus:ring-2 focus:ring-brand-blue outline-none bg-brand-white text-brand-black"
+               className="w-full p-3 border border-brand-grey rounded-lg focus:ring-2 focus:ring-brand-blue outline-none bg-brand-white text-brand-black"
              >
                 <option value="USD">USD ($)</option>
                 <option value="EUR">EUR (€)</option>
@@ -69,22 +69,22 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, onSave, 
           </div>
 
           <div>
-            <label className="block text-sm font-bold text-brand-black mb-1">Expected Start Time</label>
-            <div className="text-xs text-brand-darkGrey mb-2">Used to calculate late hours</div>
+            <label className="block text-xs font-bold text-brand-black uppercase tracking-wider mb-2">Expected Start Time</label>
+            <div className="text-[10px] text-brand-textGrey mb-2 uppercase">Used to calculate late hours</div>
             <input
               type="time"
               name="expectedStartTime"
               value={formData.expectedStartTime}
               onChange={handleChange}
-              className="w-full p-2 border border-brand-grey rounded-lg focus:ring-2 focus:ring-brand-blue outline-none text-brand-black"
+              className="w-full p-3 border border-brand-grey rounded-lg focus:ring-2 focus:ring-brand-blue outline-none text-brand-black bg-brand-white"
             />
           </div>
         </div>
 
-        <div className="p-4 border-t border-brand-grey bg-brand-grey/10">
+        <div className="p-4 border-t border-brand-grey bg-brand-grey/20">
           <button
             onClick={handleSave}
-            className="w-full py-3 bg-brand-blue hover:bg-blue-800 text-white rounded-xl font-bold transition-colors uppercase tracking-wide text-sm"
+            className="w-full py-3 bg-brand-blue hover:bg-brand-black text-brand-white rounded-xl font-bold transition-colors uppercase tracking-widest text-sm shadow-md"
           >
             Save Settings
           </button>
