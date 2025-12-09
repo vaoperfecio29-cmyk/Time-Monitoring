@@ -1,0 +1,5 @@
+{
+  "name": "WorkFlow - Time Monitor",
+  "description": "A comprehensive daily work time monitoring dashboard. Track Time In, Break Start, Break End, and Time Out. Visualize monthly working hours, late arrivals, and earnings with AI-powered insights.",
+  "requestFramePermissions": []
+}
